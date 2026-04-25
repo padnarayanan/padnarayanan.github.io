@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pad Narayanan · Global Head of AI</title>
+<meta name="description" content="Pad Narayanan, Global Head of AI at Mohawk Industries. Enterprise AI strategy, digital transformation, and large-scale platform leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,200..900,0..100,0..1;1,9..144,200..900,0..100,0..1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2EDE3;
+    --paper-warm: #ECE5D6;
+    --ink: #15110D;
+    --ink-soft: #3E342A;
+    --ink-mute: #7A6E5E;
+    --rule: #C9BFAB;
+    --accent: #7E2B22;
+    --accent-soft: #A85549;
+    --gold: #B0883D;
+    --shadow: rgba(21, 17, 13, 0.08);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(242, 237, 227, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    transition: padding 0.3s ease;
+  }
+
+  .masthead-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .masthead-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-variation-settings: "SOFT" 30;
+  }
+
+  .masthead-name em {
+    font-style: italic;
+    font-variation-settings: "WONK" 1, "SOFT" 50;
+    color: var(--accent);
+  }
+
+  .masthead-nav {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .masthead-nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+  }
+
+  .masthead-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .masthead-nav a:hover {
+    color: var(--accent);
+  }
+
+  .masthead-nav a:hover::after {
+    width: 100%;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 48px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+    align-items: end;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s ease forwards;
+  }
+
+  .hero-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(64px, 12vw, 168px);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    font-variation-settings: "SOFT" 50;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.25s ease forwards;
+  }
+
+  .hero-name .pad {
+    display: block;
+  }
+
+  .hero-name .nara {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    font-variation-settings: "WONK" 1, "SOFT" 80;
+    color: var(--accent);
+    padding-left: 0.15em;
+  }
+
+  .hero-role {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.3;
+    max-width: 640px;
+    margin-bottom: 36px;
+    font-variation-settings: "SOFT" 100;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s ease forwards;
+  }
+
+  .hero-deck {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.55s ease forwards;
+  }
+
+  .hero-deck strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s ease forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .btn-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Hero sidebar */
+  .hero-side {
+    border-left: 1px solid var(--rule);
+    padding: 32px 0 32px 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.55s ease forwards;
+  }
+
+  .hero-side-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 18px;
+  }
+
+  .hero-stat {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .hero-stat:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-stat-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    font-variation-settings: "SOFT" 0;
+  }
+
+  .hero-stat-num sup {
+    font-size: 32px;
+    vertical-align: top;
+    font-style: italic;
+    font-variation-settings: "WONK" 1;
+  }
+
+  .hero-stat-label {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  /* ============ SECTION FRAME ============ */
+  section {
+    padding: 120px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  .section-label::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .section-label .num {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .section-head {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 56px;
+    max-width: 1100px;
+    font-variation-settings: "SOFT" 60;
+  }
+
+  .section-head em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  /* ============ ABOUT ============ */
+  .about {
+    border-top: 1px solid var(--rule);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-lede {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 2.6vw, 34px);
+    font-weight: 300;
+    line-height: 1.32;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-variation-settings: "SOFT" 80;
+  }
+
+  .about-lede::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 5em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.05em 0.08em 0 -0.04em;
+    color: var(--accent);
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+    font-style: italic;
+  }
+
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding-top: 14px;
+  }
+
+  .about-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .hero-portrait {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 36px auto;
+    border: 4px solid var(--paper);
+    box-shadow: 0 30px 60px -20px rgba(21, 17, 13, 0.25);
+  }
+
+  /* ============ PILLARS ============ */
+  .pillars {
+    background: var(--paper-warm);
+    margin: 0;
+    max-width: 100%;
+    padding: 120px 48px;
+  }
+
+  .pillars-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+
+  .pillar {
+    padding: 40px 32px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    transition: background 0.3s ease;
+    cursor: default;
+  }
+
+  .pillar:hover {
+    background: var(--paper);
+  }
+
+  .pillar-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .pillar-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    font-variation-settings: "SOFT" 40;
+    transition: color 0.3s ease;
+  }
+
+  .pillar:hover .pillar-name {
+    color: var(--accent);
+    font-style: italic;
+    font-variation-settings: "WONK" 1, "SOFT" 80;
+  }
+
+  .pillar-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* ============ SKILLS ============ */
+  .skills {
+    background: var(--paper);
+    margin: 0;
+    max-width: 100%;
+    padding: 120px 48px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .skills-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+
+  .skill-cat {
+    padding: 40px 32px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.3s ease;
+  }
+
+  .skill-cat:hover {
+    background: var(--paper-warm);
+  }
+
+  .skill-cat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .skill-cat-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+    font-variation-settings: "SOFT" 40;
+  }
+
+  .skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-list li {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .skill-cat:hover .skill-list li {
+    border-color: var(--ink-mute);
+    color: var(--ink);
+  }
+
+  /* ============ IMPACT (Stats) ============ */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    border-top: 1px solid var(--rule);
+    padding-top: 64px;
+  }
+
+  .impact-card {
+    position: relative;
+  }
+
+  .impact-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(56px, 7vw, 92px);
+    line-height: 0.9;
+    color: var(--ink);
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+    font-variation-settings: "SOFT" 30;
+  }
+
+  .impact-num em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 80;
+  }
+
+  .impact-num sub {
+    font-size: 0.45em;
+    vertical-align: baseline;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-variation-settings: "WONK" 1;
+    margin-left: 4px;
+  }
+
+  .impact-label {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ============ INITIATIVES ============ */
+  .initiatives {
+    border-top: 1px solid var(--rule);
+  }
+
+  .initiatives-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .initiative {
+    display: grid;
+    grid-template-columns: 80px 1fr 1.2fr;
+    gap: 48px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+    transition: padding 0.3s ease;
+  }
+
+  .initiative:hover {
+    padding-left: 16px;
+  }
+
+  .initiative-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 500;
+    padding-top: 6px;
+  }
+
+  .initiative-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-variation-settings: "SOFT" 40;
+  }
+
+  .initiative-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  .initiative-body {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .initiative-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ============ EXPERIENCE TIMELINE ============ */
+  .experience {
+    border-top: 1px solid var(--rule);
+  }
+
+  .xp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .xp-block {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .xp-block:last-child {
+    border-bottom: none;
+  }
+
+  .xp-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .xp-years {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .xp-company {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    font-variation-settings: "SOFT" 30;
+  }
+
+  .xp-company em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  .xp-tag {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .xp-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .xp-role {
+    border-left: 2px solid var(--rule);
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .xp-role::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .xp-role-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    font-variation-settings: "SOFT" 30;
+  }
+
+  .xp-role-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .xp-role-summary {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .xp-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .xp-bullets li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .xp-bullets li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+
+  /* ============ EDUCATION ============ */
+  .credentials {
+    border-top: 1px solid var(--rule);
+    background: var(--paper-warm);
+    max-width: 100%;
+    padding: 120px 48px;
+  }
+
+  .credentials-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .cred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .cred-col-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 400;
+    font-variation-settings: "SOFT" 40;
+  }
+
+  .cred-col-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  .cred-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    list-style: none;
+  }
+
+  .cred-item {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .cred-item:last-child {
+    border-bottom: none;
+  }
+
+  .cred-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--accent);
+    flex-shrink: 0;
+    line-height: 1;
+    font-style: italic;
+    font-variation-settings: "WONK" 1;
+  }
+
+  .cred-content {
+    flex: 1;
+  }
+
+  .cred-name {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-variation-settings: "SOFT" 30;
+  }
+
+  .cred-detail {
+    font-size: 13.5px;
+    color: var(--ink-mute);
+    line-height: 1.4;
+  }
+
+  /* ============ RECOGNITION ============ */
+  .recognition {
+    border-top: 1px solid var(--rule);
+  }
+
+  .recog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .recog-card {
+    background: var(--paper);
+    padding: 40px;
+    transition: background 0.3s ease;
+    position: relative;
+  }
+
+  .recog-card:hover {
+    background: var(--paper-warm);
+  }
+
+  .recog-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .recog-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-variation-settings: "SOFT" 40;
+  }
+
+  .recog-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  .recog-body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* ============ AFFILIATIONS ============ */
+  .affil {
+    border-top: 1px solid var(--rule);
+  }
+
+  .affil-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .affil-card {
+    padding: 28px 0;
+    border-top: 2px solid var(--ink);
+  }
+
+  .affil-card.accent {
+    border-top-color: var(--accent);
+  }
+
+  .affil-card.gold {
+    border-top-color: var(--gold);
+  }
+
+  .affil-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+
+  .affil-org {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink);
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    font-variation-settings: "SOFT" 30;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact {
+    border-top: 1px solid var(--rule);
+    padding: 140px 48px 80px;
+  }
+
+  .contact-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .contact-head {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 7vw, 108px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 24px;
+    font-variation-settings: "SOFT" 60;
+  }
+
+  .contact-head em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  .contact-deck {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 460px;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .contact-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .contact-value {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 400;
+    font-variation-settings: "SOFT" 40;
+  }
+
+  .contact-value:hover {
+    color: var(--accent);
+    font-style: italic;
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  /* ============ COLOPHON ============ */
+  .colophon {
+    border-top: 1px solid var(--rule);
+    padding: 32px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+
+  .colophon-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    color: var(--accent);
+    font-variation-settings: "WONK" 1, "SOFT" 100;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+
+    .hero-side {
+      border-left: none;
+      border-top: 1px solid var(--rule);
+      padding: 32px 0 0;
+    }
+
+    .about-grid, .cred-grid, .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .pillars-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recog-grid, .affil-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .initiative {
+      grid-template-columns: 60px 1fr;
+    }
+
+    .initiative-body {
+      grid-column: 1 / -1;
+      padding-left: 0;
+    }
+
+    .xp-block {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .masthead-inner {
+      padding: 14px 24px;
+    }
+
+    .masthead-nav {
+      display: none;
+    }
+
+    .hero, section {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .hero {
+      padding-top: 100px;
+      padding-bottom: 56px;
+    }
+
+    section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .pillars, .skills, .credentials, .contact {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .pillars-grid, .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-cat {
+      padding: 28px 20px;
+    }
+
+    .pillar {
+      padding: 28px 20px;
+    }
+
+    .impact-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .colophon {
+      padding: 24px;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-name">Pad <em>Narayanan</em></div>
+    <nav>
+      <ul class="masthead-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#pillars">Pillars</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div>
+    <div class="hero-eyebrow">Global Head of AI · Mohawk Industries</div>
+    <h1 class="hero-name">
+      <span class="pad">Pad</span>
+      <span class="nara">Narayanan</span>
+    </h1>
+    <p class="hero-role">Operator at the intersection of artificial intelligence, enterprise platforms, and the people who run them.</p>
+    <p class="hero-deck">I build and lead global AI organizations that turn algorithms into operating leverage. At <strong>Mohawk Industries</strong>, a $12B NYSE flooring manufacturer, I sit at the executive level shaping AI vision, governance, and execution across commercial, manufacturing, and consumer surfaces. My focus is durable: ship things that move revenue, protect margin, and earn the trust of the boardroom.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">
+        Get in touch
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="Pad_Narayanan_March2026.pdf" class="btn btn-ghost" download>
+        Download Resume
+      </a>
+      <a href="#impact" class="btn btn-ghost">
+        See impact
+      </a>
+    </div>
+  </div>
+
+  <aside class="hero-side">
+    <img class="hero-portrait" src="pad.jpeg" alt="Pad Narayanan">
+    <div class="hero-side-label">By the numbers</div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">$<em>2.9</em><sup>B</sup></div>
+      <div class="hero-stat-label">B2B e-commerce sales delivered through Mohawk xChange, 2021 to 2025.</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num"><em>168</em></div>
+      <div class="hero-stat-label">Engineers, designers, and analysts directed across digital, AI, and platform teams.</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num"><em>43</em>%</div>
+      <div class="hero-stat-label">Reduction in CSR contact center expense through AI automation and self-service.</div>
+    </div>
+  </aside>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <h2 class="section-head">An AI leader who has carried <em>P&L</em>, shipped at scale, and earned the boardroom.</h2>
+
+  <div class="about-grid">
+    <p class="about-lede">Twenty-plus years moving from architect to senior executive across Japan, India, California, and Georgia, with a track record of translating advanced technologies into measurable business outcomes for global manufacturers, insurers, and hospitality operators.</p>
+
+    <div class="about-body">
+      <p>Today I serve as <strong>Global Head of AI at Mohawk Industries</strong>, where I partner with the CEO, C-suite, and Board to set AI strategy, governance, and operating cadence for a 43,000-person enterprise. The mandate is broad: predictive analytics, Vision AI in plants, MLOps, custom LLMs and Generative AI, and the platform spine that keeps it all production-grade.</p>
+
+      <p>I came up the long way. Mechanical engineering and tool-and-die training in India. CNC and robotics R&amp;D at <strong>Makino</strong> in Tokyo for nearly a decade. Application architecture and team leadership at <strong>Keenan &amp; Associates</strong> on the West Coast. Then the climb at <strong>Mohawk</strong> from Architect to VP to Global Head of AI in five years, with a Kellogg MBA and an Illinois Tech MS along the way.</p>
+
+      <p>Outside the day job, I sit on the Board of Hemophilia of Georgia, hold a Fellowship with the British Computer Society, founded a non-profit (<em>Good and Humble</em>), and operate <em>Color Pencil Technology Inc</em>. I write about AI in manufacturing and hospitality for industry forums, and I serve as judge and advisor to founders building in adjacent spaces. Recognition has followed the work: <strong>MachineCon Top AI100</strong>, <strong>Stand Out 50 Leaders 2025</strong>, and <strong>Top 25 Atlanta Data &amp; AI Leader 2026</strong> from CDO Magazine.</p>
+
+      <p>Based in Atlanta. Reachable for executive AI roles, board engagements, advisory mandates, and the occasional thoughtful conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="pillars" id="pillars">
+  <div class="pillars-inner">
+    <h2 class="section-head">Eighteen disciplines I draw on, daily.</h2>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="pillar-num">001</span>
+        <h3 class="pillar-name">Cutting-Edge Leadership</h3>
+        <p class="pillar-desc">Setting direction in fast-moving, high-stakes domains where the playbook is still being written.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">002</span>
+        <h3 class="pillar-name">Business Transformation</h3>
+        <p class="pillar-desc">Re-architecting how enterprises operate, sell, and serve, with technology as the lever.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">003</span>
+        <h3 class="pillar-name">Strategic Planning &amp; IT Solutions</h3>
+        <p class="pillar-desc">Aligning multi-year roadmaps with business strategy, capital allocation, and competitive realities.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">004</span>
+        <h3 class="pillar-name">Business Process Improvement</h3>
+        <p class="pillar-desc">Removing friction in revenue, supply chain, and customer operations through measurable redesign.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">005</span>
+        <h3 class="pillar-name">Technical Architecture</h3>
+        <p class="pillar-desc">Designing scalable, secure, and resilient systems built for production, not the demo.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">006</span>
+        <h3 class="pillar-name">Issue Resolution &amp; Decision Making</h3>
+        <p class="pillar-desc">Cutting through ambiguity quickly, with the calm and judgment senior teams require.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">007</span>
+        <h3 class="pillar-name">Global AI Strategist</h3>
+        <p class="pillar-desc">Shaping AI vision, governance, and operating models that scale responsibly across geographies.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">008</span>
+        <h3 class="pillar-name">Finance &amp; Budgeting</h3>
+        <p class="pillar-desc">Owning $80M+ in technology spend with a P&amp;L mindset and a Kellogg MBA.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">009</span>
+        <h3 class="pillar-name">Project Management Expertise</h3>
+        <p class="pillar-desc">Delivering complex programs across continents and time zones, on time and on budget.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">010</span>
+        <h3 class="pillar-name">Organizational Development</h3>
+        <p class="pillar-desc">Building durable teams, ladders, and culture that outlast any single program or initiative.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">011</span>
+        <h3 class="pillar-name">Relationship &amp; Team Building</h3>
+        <p class="pillar-desc">Earning trust with peers, partners, and customers, then using it to move the work forward.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">012</span>
+        <h3 class="pillar-name">Application Development</h3>
+        <p class="pillar-desc">Decades of hands-on craft, from mechanical CAD through modern web, mobile, and AI stacks.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">013</span>
+        <h3 class="pillar-name">Founder &amp; Board Engagement</h3>
+        <p class="pillar-desc">Operating company founder and active board contributor, comfortable on both sides of the table.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">014</span>
+        <h3 class="pillar-name">AI &amp; Technical Subject Matter Expert</h3>
+        <p class="pillar-desc">Recognized authority on applied AI in manufacturing, hospitality, and enterprise commerce.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">015</span>
+        <h3 class="pillar-name">Application Innovation</h3>
+        <p class="pillar-desc">Replatforming legacy estates with GenAI and custom LLMs, in months rather than years.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">016</span>
+        <h3 class="pillar-name">Product Development</h3>
+        <p class="pillar-desc">Shaping consumer, B2B, and internal products that get adopted because they earn it.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">017</span>
+        <h3 class="pillar-name">Revenue Growth &amp; Negotiations</h3>
+        <p class="pillar-desc">Driving multi-billion-dollar order inflow and the commercial conversations behind it.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">018</span>
+        <h3 class="pillar-name">Influencing Key Decision-Makers</h3>
+        <p class="pillar-desc">Translating AI to executives, executives to engineers, and both groups to the customer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="skills" id="skills">
+  <div class="skills-inner">
+    <h2 class="section-head">A working <em>toolkit</em>, refined across two decades.</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-cat">
+        <span class="skill-cat-num">01</span>
+        <h3 class="skill-cat-name">Artificial Intelligence &amp; ML</h3>
+        <ul class="skill-list">
+          <li>Generative AI</li>
+          <li>Custom LLMs</li>
+          <li>RAG</li>
+          <li>Vision AI</li>
+          <li>Predictive Analytics</li>
+          <li>MLOps</li>
+          <li>AI Governance</li>
+          <li>Responsible AI</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <span class="skill-cat-num">02</span>
+        <h3 class="skill-cat-name">Cloud &amp; Architecture</h3>
+        <ul class="skill-list">
+          <li>Microsoft Azure</li>
+          <li>AWS</li>
+          <li>GCP</li>
+          <li>Microservices</li>
+          <li>REST APIs</li>
+          <li>System Integration</li>
+          <li>TOGAF</li>
+          <li>Cloud Cost Optimization</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <span class="skill-cat-num">03</span>
+        <h3 class="skill-cat-name">Enterprise Platforms</h3>
+        <ul class="skill-list">
+          <li>ERP Migration</li>
+          <li>Mobile CRM</li>
+          <li>PIM</li>
+          <li>B2B E-commerce</li>
+          <li>B2C E-commerce</li>
+          <li>Order Management</li>
+          <li>Pricing Technology</li>
+          <li>Content Syndication</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <span class="skill-cat-num">04</span>
+        <h3 class="skill-cat-name">Data &amp; Analytics</h3>
+        <ul class="skill-list">
+          <li>AI-Powered Pricing</li>
+          <li>Forecasting</li>
+          <li>Business Intelligence</li>
+          <li>Digital Forecasting</li>
+          <li>Competitive Intelligence</li>
+          <li>Data Lifecycle Management</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <span class="skill-cat-num">05</span>
+        <h3 class="skill-cat-name">Emerging Tech &amp; UX</h3>
+        <ul class="skill-list">
+          <li>AR / VR Visualization</li>
+          <li>HCI</li>
+          <li>Voice AI</li>
+          <li>Robotics</li>
+          <li>CNC Software</li>
+          <li>Mechanical CAD</li>
+        </ul>
+      </div>
+
+      <div class="skill-cat">
+        <span class="skill-cat-num">06</span>
+        <h3 class="skill-cat-name">Delivery &amp; Leadership</h3>
+        <ul class="skill-list">
+          <li>Agile / Scrum</li>
+          <li>DevOps</li>
+          <li>Program Management</li>
+          <li>IT Governance</li>
+          <li>Budget Ownership</li>
+          <li>Vendor Management</li>
+          <li>Change Management</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section id="impact">
+  <h2 class="section-head">Outcomes, not <em>theatrics</em>.</h2>
+
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">$<em>2.9</em><sub>b</sub></div>
+      <div class="impact-label">B2B e-commerce sales through Mohawk xChange, 2021 to 2025.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">$<em>3.7</em><sub>b</sub></div>
+      <div class="impact-label">Annual order inflow optimized through AI-driven digital transformation.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">$<em>20</em><sub>m</sub></div>
+      <div class="impact-label">Development cost saved by replatforming 18 legacy applications with GenAI and custom LLMs.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">$<em>80</em><sub>m</sub></div>
+      <div class="impact-label">Annual technology budget owned across digital, pricing, and CRM platforms.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num"><em>43</em>%</div>
+      <div class="impact-label">Reduction in CSR contact center expense through AI automation.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num"><em>168</em></div>
+      <div class="impact-label">Direct and matrixed team members across digital, AI, and platform organizations.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num"><em>2,000</em>+</div>
+      <div class="impact-label">Sales staff and 800+ CSRs supported through Mobile CRM and unified platforms.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num"><em>33</em></div>
+      <div class="impact-label">Brand and microsites launched globally across Mohawk, Pergo, Karastan, Unilin, and Godfrey Hirst.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INITIATIVES ============ -->
+<section class="initiatives" id="initiatives">
+  <h2 class="section-head">A working <em>portfolio</em> of programs that shipped.</h2>
+
+  <div class="initiatives-list">
+
+    <div class="initiative">
+      <div class="initiative-num">N° 01</div>
+      <div>
+        <h3 class="initiative-title">Mohawk <em>xChange</em>, the B2B platform.</h3>
+      </div>
+      <div class="initiative-body">A unified B2B commerce platform processing <strong>$3.2B in annual revenue flow</strong>. Microservices-based APIs for product, pricing, and content syndication to retailers, contributing to a 6% lift in consumer revenue.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 02</div>
+      <div>
+        <h3 class="initiative-title">Enterprise pricing intelligence.</h3>
+      </div>
+      <div class="initiative-body">Implemented <strong>Pricefx</strong> at Mohawk scale, governing <strong>25M+ pricing conditions</strong> across <strong>1.2M SKUs</strong>. AI-powered pricing models drive margin optimization and competitive intelligence across channels.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 03</div>
+      <div>
+        <h3 class="initiative-title">SAP digital backbone.</h3>
+      </div>
+      <div class="initiative-body">Led SAP implementation across the digital estate: <strong>Commerce Cloud, PIM, DAM, Price Management, and C4C modernization</strong>, with UI/UX uplift and AI, ML, and predictive analytics layered through.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 04</div>
+      <div>
+        <h3 class="initiative-title">Sales Cloud and Service Cloud at scale.</h3>
+      </div>
+      <div class="initiative-body">Deployed <strong>SAP C4C</strong> across the entire business unit, supporting <strong>2,000+ sales people and 800+ customer service representatives</strong>. Tightly integrated with order management, pricing, and product information.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 05</div>
+      <div>
+        <h3 class="initiative-title">Generative AI for <em>customer experience</em>.</h3>
+      </div>
+      <div class="initiative-body">Shipped a Gen AI solution for the entire customer experience division, leveraging <strong>Google Enterprise, Google CCAIP, and Dialogflow</strong>, with custom LLMs powering voice and chat workflows.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 06</div>
+      <div>
+        <h3 class="initiative-title">Sales Nexus, the connective tissue.</h3>
+      </div>
+      <div class="initiative-body">A homegrown sales platform connecting <strong>10+ systems</strong>: S/4HANA, SAP Sales Cloud, SAP Commerce Cloud, HubSpot, Office 365, Salepoint, Service Cloud, PIM, and DAM. Built for the realities of a 2,000-seat sales organization.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 07</div>
+      <div>
+        <h3 class="initiative-title">Mobile-first sales engagement.</h3>
+      </div>
+      <div class="initiative-body">Deployed Mobile CRM with 100% digital forecasting tied to inventory planning. Combined with the <strong>Make-to-Call</strong> program, the work contributed to a 7% top-line lift across 2021, 2022, and 2023.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 08</div>
+      <div>
+        <h3 class="initiative-title">Brand presence, globally.</h3>
+      </div>
+      <div class="initiative-body">Established Mohawk's digital footprint with <strong>15 brand sites and 18 microsites</strong>, including Mohawk Flooring, Pergo, Karastan, Mohawk Group, IVC Floors, US Quick Step, and global launches for Unilin and Godfrey Hirst.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 09</div>
+      <div>
+        <h3 class="initiative-title">Vision AI in <em>manufacturing</em>.</h3>
+      </div>
+      <div class="initiative-body">Implemented Vision AI across <strong>three manufacturing plants</strong> for quality, throughput, and operator support, embedding computer vision into the factory floor where it had to earn its place.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 10</div>
+      <div>
+        <h3 class="initiative-title">Custom pattern generation engine.</h3>
+      </div>
+      <div class="initiative-body">Designed and deployed a custom pattern generation engine using multiple custom LLMs for recoloring across construction types, accelerating commercial design cycles for hospitality customers.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 11</div>
+      <div>
+        <h3 class="initiative-title">Replatforming the legacy estate.</h3>
+      </div>
+      <div class="initiative-body">Replatformed <strong>18 legacy applications</strong> in under four months each, leveraging GenAI and custom LLMs, saving more than <strong>$20M</strong> in development cost while modernizing the technology base.</div>
+    </div>
+
+    <div class="initiative">
+      <div class="initiative-num">N° 12</div>
+      <div>
+        <h3 class="initiative-title">AI strategy for the enterprise.</h3>
+      </div>
+      <div class="initiative-body">Authored Mohawk's AI strategy: <strong>guardrails, governance, architecture, security, cloud ops, rapid prototyping, and delivery</strong>. The framework that lets the rest of this list move at speed without breaking trust.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="experience" id="experience">
+  <h2 class="section-head">Twenty-plus years across <em>four</em> continents.</h2>
+
+  <div class="xp-list">
+
+    <!-- Mohawk -->
+    <div class="xp-block">
+      <div class="xp-meta">
+        <div class="xp-years">2020 to Present</div>
+        <h3 class="xp-company">Mohawk <em>Industries</em></h3>
+        <div class="xp-tag">Calhoun, Georgia · NYSE: MHK · $12B global flooring manufacturer · 43,000 employees</div>
+      </div>
+
+      <div class="xp-roles">
+
+        <div class="xp-role">
+          <h4 class="xp-role-title">Global Head of AI</h4>
+          <div class="xp-role-period">Nov 2025 to Present</div>
+          <p class="xp-role-summary">Setting AI strategy, governance, and operating model for the enterprise.</p>
+          <ul class="xp-bullets">
+            <li>Spearheading the establishment of AI as a core strategic capability at the enterprise level, formulating and executing a global AI vision, governance framework, and operating model to responsibly scale applied and generative AI initiatives.</li>
+            <li>Collaborating with the CEO, C-suite, and Board of Directors to drive AI innovation, translating advanced technologies into measurable business outcomes such as enterprise automation, operational efficiency, and revenue growth.</li>
+            <li>Building and leading high-performing global AI teams, championing secure, ethical, and resilient AI adoption to deliver sustainable, long-term enterprise value.</li>
+          </ul>
+        </div>
+
+        <div class="xp-role">
+          <h4 class="xp-role-title">Vice President, Digital, Innovation &amp; Head of AI</h4>
+          <div class="xp-role-period">Aug 2022 to Oct 2025</div>
+          <p class="xp-role-summary">Drove digital transformation by aligning IT and business strategies across units, delivering innovative solutions, and managing enterprise risk.</p>
+          <ul class="xp-bullets">
+            <li>Achieved <strong>$2.9B in B2B e-commerce sales</strong> over four years (2021 to 2025) while reducing CSR contact center expense by <strong>43%</strong>.</li>
+            <li>Directed microservices-based APIs for product, pricing, and content syndication to retailers, growing consumer revenue by 6%.</li>
+            <li>Led creation and rollout of an advanced Mobile CRM with 100% digital forecasting and tight integration with business planning, contributing to a 7% increase in top-line sales across 2021 to 2023.</li>
+          </ul>
+        </div>
+
+        <div class="xp-role">
+          <h4 class="xp-role-title">Vice President, Commercial (Digital Innovation &amp; Transformation)</h4>
+          <div class="xp-role-period">May 2022 to Dec 2025</div>
+          <p class="xp-role-summary">Directed a 168-member team to deliver digital transformation and AI innovation across Mohawk's Flooring North America (FNA) division.</p>
+          <ul class="xp-bullets">
+            <li>Managed an <strong>$80M budget</strong> for digital architecture, pricing technology, and CRM platforms supporting 2,000+ sales staff.</li>
+            <li>Optimized <strong>$3.7B annual order inflow</strong> by leading AI-driven digital transformation across multi-channel operations.</li>
+            <li>Co-led ERP migration and order entry transformation, streamlining multi-channel transactions.</li>
+            <li>Established global AI governance and execution frameworks, enabling scalable, secure AI adoption and accelerated automation.</li>
+            <li>Championed AR/VR product visualization and HCI adoption; launched AI-powered pricing models that lifted margin and competitive intelligence.</li>
+          </ul>
+        </div>
+
+        <div class="xp-role">
+          <h4 class="xp-role-title">Director / Senior Director, Application Development</h4>
+          <div class="xp-role-period">Dec 2020 to May 2022</div>
+          <p class="xp-role-summary">IT leader and program manager for digital marketing and consumer-facing applications across Mohawk's brand portfolio.</p>
+          <ul class="xp-bullets">
+            <li>Redesigned the web presence for brand sites using HCI principles, partnering with cross-functional teams on technical solutions.</li>
+            <li>Served as Technical Owner for Product Information Management, overseeing the product data lifecycle from supply through enrichment and syndication.</li>
+          </ul>
+        </div>
+
+        <div class="xp-role">
+          <h4 class="xp-role-title">Architect &amp; Senior Manager, Digital Marketing</h4>
+          <div class="xp-role-period">Aug 2020 to Dec 2020</div>
+          <p class="xp-role-summary">Executed the enterprise business data solution for brand sites and B2C/B2B customer-facing applications.</p>
+          <ul class="xp-bullets">
+            <li>Integrated ChannelSight with the Pergo website to ensure timely pricing and stock updates.</li>
+            <li>Deployed the Visualizer tool and architected Azure web apps, reducing monthly cloud costs by 60%.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Keenan -->
+    <div class="xp-block">
+      <div class="xp-meta">
+        <div class="xp-years">2013 to 2020</div>
+        <h3 class="xp-company">Keenan &amp; <em>Associates</em></h3>
+        <div class="xp-tag">Torrance, California · $180M insurance broker, acquired by Assured Partners ($4B)</div>
+      </div>
+      <div class="xp-roles">
+        <div class="xp-role">
+          <h4 class="xp-role-title">Senior Application Architect</h4>
+          <div class="xp-role-period">Jan 2013 to Jul 2020</div>
+          <ul class="xp-bullets">
+            <li>Led a 62-member global team delivering a $10M flagship program with expert enrollment solutions.</li>
+            <li>Grew revenue $2M through needs analysis, system upgrades, and impact assessment.</li>
+            <li>Implemented TOGAF principles, trained teams, and improved application development quality.</li>
+            <li>Served as Scrum Master for Agile teams, ensuring on-time delivery of business solutions.</li>
+            <li>Recognized as Employee of the Year for four consecutive years and received the Exceptional Customer Service Award.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Future Focus -->
+    <div class="xp-block">
+      <div class="xp-meta">
+        <div class="xp-years">2009 to 2012</div>
+        <h3 class="xp-company">Future Focus <em>Infotech</em></h3>
+        <div class="xp-tag">Chennai, India · NASSCOM-ranked emerging IT consulting group</div>
+      </div>
+      <div class="xp-roles">
+        <div class="xp-role">
+          <h4 class="xp-role-title">Project Manager</h4>
+          <div class="xp-role-period">Jul 2010 to Dec 2012</div>
+          <p class="xp-role-summary">Account manager for the largest client (US$1.5M revenue), running 16 insurance application products across a team of 70+ developers, testers, and leads.</p>
+          <ul class="xp-bullets">
+            <li>Drove a 15% increase in account revenue through forecasting discipline and team performance management.</li>
+            <li>Partnered with clients to define scope, plan resources, and align solutions to business goals.</li>
+          </ul>
+        </div>
+        <div class="xp-role">
+          <h4 class="xp-role-title">IT Consultant</h4>
+          <div class="xp-role-period">Apr 2009 to Jun 2010</div>
+          <ul class="xp-bullets">
+            <li>Steered 60 employees across six internal teams to deliver client projects on accelerated timelines.</li>
+            <li>Facilitated change management for seven client engagements with structured documentation and presentations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Makino -->
+    <div class="xp-block">
+      <div class="xp-meta">
+        <div class="xp-years">2001 to 2009</div>
+        <h3 class="xp-company">Makino <em>Milling</em> Machine</h3>
+        <div class="xp-tag">Tokyo, Japan · One of the largest CNC manufacturing companies globally</div>
+      </div>
+      <div class="xp-roles">
+        <div class="xp-role">
+          <h4 class="xp-role-title">Application Project Leader</h4>
+          <div class="xp-role-period">Aug 2001 to Mar 2009</div>
+          <p class="xp-role-summary">Mechanical engineering, R&amp;D, and robotics expertise applied to high-precision CNC software programs.</p>
+          <ul class="xp-bullets">
+            <li>Authored 15 project proposals, including budget changes; 75% were approved into assignments.</li>
+            <li>Defined scope, deliverables, schedules, and contingency plans for two major precision projects.</li>
+          </ul>
+        </div>
+        <div class="xp-role">
+          <h4 class="xp-role-title">Application Engineer</h4>
+          <div class="xp-role-period">Mar 2005 to Jul 2007</div>
+          <ul class="xp-bullets">
+            <li>Directed product developers in R&amp;D to enhance software functionality and ensure top-quality machine software.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CREDENTIALS ============ -->
+<section class="credentials" id="credentials">
+  <div class="credentials-inner">
+    <h2 class="section-head">Trained at the <em>intersection</em> of engineering, technology, and management.</h2>
+
+    <div class="cred-grid">
+
+      <div>
+        <h3 class="cred-col-title"><em>Education</em></h3>
+        <ul class="cred-list">
+          <li class="cred-item">
+            <span class="cred-mark">★</span>
+            <div class="cred-content">
+              <div class="cred-name">Kellogg School of Management, Northwestern University</div>
+              <div class="cred-detail">Master of Business Administration · 2019</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">★</span>
+            <div class="cred-content">
+              <div class="cred-name">Illinois Institute of Technology</div>
+              <div class="cred-detail">MS, Information Technology &amp; Management · 2007</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">◇</span>
+            <div class="cred-content">
+              <div class="cred-name">University of Chicago, Booth School of Business</div>
+              <div class="cred-detail">Corporate Strategy · Executive Finance · Negotiation &amp; Decision-Making</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">◇</span>
+            <div class="cred-content">
+              <div class="cred-name">National Institute of Information Technology</div>
+              <div class="cred-detail">Diploma in eCommerce, Information Technology · 2001</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">◇</span>
+            <div class="cred-content">
+              <div class="cred-name">Nettur Technical Training Foundation</div>
+              <div class="cred-detail">Diploma in Tool &amp; Die Making · 1997 to 2001</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="cred-col-title"><em>Certifications</em></h3>
+        <ul class="cred-list">
+          <li class="cred-item">
+            <span class="cred-mark">✦</span>
+            <div class="cred-content">
+              <div class="cred-name">TOGAF® 9 Certified, V1 &amp; V2</div>
+              <div class="cred-detail">The Open Group Architecture Framework</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">✦</span>
+            <div class="cred-content">
+              <div class="cred-name">ITIL Certified</div>
+              <div class="cred-detail">Information Technology Infrastructure Library</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">✦</span>
+            <div class="cred-content">
+              <div class="cred-name">Microsoft Certified Solutions Developer</div>
+              <div class="cred-detail">MCSD</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">✦</span>
+            <div class="cred-content">
+              <div class="cred-name">inRiver Certified Developer</div>
+              <div class="cred-detail">Product Information Management</div>
+            </div>
+          </li>
+          <li class="cred-item">
+            <span class="cred-mark">✦</span>
+            <div class="cred-content">
+              <div class="cred-name">Mohawk LEAD Graduate</div>
+              <div class="cred-detail">Mohawk Industries leadership development program</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECOGNITION ============ -->
+<section class="recognition" id="recognition">
+  <h2 class="section-head">A handful of moments worth <em>noting</em>.</h2>
+
+  <div class="recog-grid">
+
+    <div class="recog-card">
+      <div class="recog-year">2026 · CDO Magazine</div>
+      <h3 class="recog-title">Top 25 Atlanta <em>Data &amp; AI Leader</em></h3>
+      <p class="recog-body">Recognized among the leading data and AI executives shaping enterprise practice across the Atlanta metro region.</p>
+    </div>
+
+    <div class="recog-card">
+      <div class="recog-year">2025 · Stand Out 50 Leaders</div>
+      <h3 class="recog-title">Stand Out 50 <em>Leaders</em> 2025</h3>
+      <p class="recog-body">Selected to the 2025 Stand Out 50 Leaders list, recognizing distinguished executives across industries and geographies.</p>
+    </div>
+
+    <div class="recog-card">
+      <div class="recog-year">2024 · MachineCon</div>
+      <h3 class="recog-title">MachineCon Top <em>AI100</em></h3>
+      <p class="recog-body">Acknowledged among the top 100 AI and data science leaders for outstanding achievements in data science and analytics.</p>
+    </div>
+
+    <div class="recog-card">
+      <div class="recog-year">2024 · United States</div>
+      <h3 class="recog-title">EB-1A Visa <em>Recipient</em></h3>
+      <p class="recog-body">Awarded the EB-1A Visa, recognizing exceptional achievements and significant contributions to digital transformation, AI, and technology innovation, leading to U.S. permanent residency on professional merit.</p>
+    </div>
+
+    <div class="recog-card">
+      <div class="recog-year">2016 to 2019 · Keenan &amp; Associates</div>
+      <h3 class="recog-title">Employee of the <em>Year</em>, Four Consecutive Years</h3>
+      <p class="recog-body">Recognized four years running for sustained leadership and impact across enrollment platforms and global engineering delivery.</p>
+    </div>
+
+    <div class="recog-card">
+      <div class="recog-year">Keenan &amp; Associates</div>
+      <h3 class="recog-title">Exceptional <em>Customer Service</em> Award</h3>
+      <p class="recog-body">Awarded for sustained client impact and partnership across enrollment and benefits administration platforms.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ AFFILIATIONS ============ -->
+<section class="affil" id="affiliations">
+  <h2 class="section-head">Where I serve, build, and contribute <em>off-hours</em>.</h2>
+
+  <div class="affil-grid">
+
+    <div class="affil-card accent">
+      <div class="affil-role">Fellow</div>
+      <h3 class="affil-org">British Computer Society (BCS)</h3>
+    </div>
+
+    <div class="affil-card accent">
+      <div class="affil-role">Board Member</div>
+      <h3 class="affil-org">Hemophilia of Georgia</h3>
+    </div>
+
+    <div class="affil-card accent">
+      <div class="affil-role">Member</div>
+      <h3 class="affil-org">World 50x</h3>
+    </div>
+
+    <div class="affil-card gold">
+      <div class="affil-role">Member</div>
+      <h3 class="affil-org">AIM Leaders Council &amp; Research</h3>
+    </div>
+
+    <div class="affil-card gold">
+      <div class="affil-role">Member</div>
+      <h3 class="affil-org">Technology Association of Georgia (TAG)</h3>
+    </div>
+
+    <div class="affil-card gold">
+      <div class="affil-role">Founder</div>
+      <h3 class="affil-org">Good and Humble · Non-Profit</h3>
+    </div>
+
+    <div class="affil-card">
+      <div class="affil-role">Founder</div>
+      <h3 class="affil-org">Color Pencil Technology Inc.</h3>
+    </div>
+
+    <div class="affil-card">
+      <div class="affil-role">Alumni</div>
+      <h3 class="affil-org">Kellogg Alumni Association</h3>
+    </div>
+
+    <div class="affil-card">
+      <div class="affil-role">Alumni</div>
+      <h3 class="affil-org">Illinois Institute of Technology</h3>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-head">Let's <em>talk.</em></h2>
+      <p class="contact-deck">Open to executive AI roles, board engagements, advisory mandates, founder conversations, and the occasional thoughtful note from a stranger. Atlanta-based, globally minded, and reachable through the channels at right.</p>
+    </div>
+
+    <ul class="contact-list">
+      <li class="contact-row">
+        <span class="contact-label">Email</span>
+        <a class="contact-value" href="mailto:pad@example.com">pad@padnarayanan.com</a>
+      </li>
+      <li class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <a class="contact-value" href="https://www.linkedin.com/in/padnarayanan/" target="_blank" rel="noopener">linkedin.com/in/padnarayanan</a>
+      </li>
+      <li class="contact-row">
+        <span class="contact-label">Resume</span>
+        <a class="contact-value" href="Pad_Narayanan_March2026.pdf" download>Download PDF</a>
+      </li>
+      <li class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Atlanta, Georgia · USA</span>
+      </li>
+      <li class="contact-row">
+        <span class="contact-label">Speaking</span>
+        <span class="contact-value">Available on request</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COLOPHON ============ -->
+<footer class="colophon">
+  <div>© 2026 Pad Narayanan · All rights reserved</div>
+  <div class="colophon-mark">Set in Fraunces &amp; Inter Tight</div>
+  <div>Atlanta, GA</div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.section-label, .section-head, .about-grid, .pillars-grid, .impact-card, .initiative, .xp-block, .cred-grid, .recog-card, .affil-card, .contact-inner').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  // Subtle masthead shrink on scroll
+  const masthead = document.querySelector('.masthead');
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 80) {
+      masthead.style.padding = '0';
+      masthead.querySelector('.masthead-inner').style.padding = '12px 48px';
+    } else {
+      masthead.querySelector('.masthead-inner').style.padding = '18px 48px';
+    }
+    lastY = y;
+  }, { passive: true });
+</script>
+
+</body>
+</html>
